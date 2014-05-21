@@ -1,0 +1,25 @@
+; Filename: iminvert.spi
+; 
+; Image inversion
+;
+; 10/05/2009  Po-Lin Chiu
+;
+
+
+VM
+echo "Inverting image..."
+
+FR
+? The image to be inverted (replaced): ?
+
+AR
+<1>
+_1
+(-1)*P1;
+
+CP
+_1
+<1>;
+
+RE;
+

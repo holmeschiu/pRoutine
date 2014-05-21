@@ -1,0 +1,35 @@
+; Filename: find_threshold.spi
+;
+; Find the threshold for the isotour surface display of a volume. 
+;
+; 10/06/2009  Po-Lin Chiu
+;
+
+
+VM
+echo "Finding threshold ..."
+
+FR
+? The volume for finding threshold: ? ; <1>
+
+TH M
+<1>
+_1       ; mask created from the reference
+B        ; blank out ((B)elow threshold)
+25       ; the known threshold for this reference volume
+
+FS X31, X32, X33
+_1;
+
+FI X34   ; get the volume size
+_1
+(1);
+
+X81 = X33*X34*X34*X34           ; # of voxels = avg * volsize^3
+
+FV X82
+new_volume                      ; volume for which you want the threshold
+X81;
+
+RE;
+

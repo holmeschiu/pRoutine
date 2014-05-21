@@ -1,0 +1,33 @@
+
+
+; Filename: imnorm.spi
+; 
+; Image normalization with the max and min pixel value. 
+;
+; 10/06/2009  Po-Lin Chiu
+;
+
+
+VM
+echo "Normalizing image..."
+
+FR
+? The image to be normalized (replaced): ?
+
+FS X21, X22, X23, X24
+<1>;
+
+AR
+<1>
+_1
+(P1-X22)/(X21-X22);
+
+DE
+<1>;
+
+CP
+_1
+<1>;
+
+RE;
+

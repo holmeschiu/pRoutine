@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/programs/local/x86_64-linux/tw/eman2/20140325/extlib/bin/python
 
 import glob
 
@@ -12,7 +12,7 @@ for im in inImage:
     imNumber = im[-19:-15]
     outImage = dirName + "medfvccmplx_" + imNumber + ".mrc"
 
-    a = EMData().read_image(im)
+    a = EMData().read_images(im)
     b = a.process("eman1.filter.median", {"radius":3})
     b.process_inplace("normalize.edgemean")
     b.write_image(outImage)

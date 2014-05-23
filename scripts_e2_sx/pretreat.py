@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+import glob
+
+from EMAN2 import *
+
+param_dict = {}
+dirName = "higher_dose/"
+inImage = glob.glob(dirName+"*.mrc")
+
+for im in inImage:
+    imNumber = im[-19:-15]
+    outImage = dirName + "medfvccmplx_" + imNumber + ".mrc"
+
+    a = EMData().read_image(im)
+    b = a.process("eman1.filter.median", {"radius":3})
+    b.process_inplace("normalize.edgemean")
+    b.write_image(outImage)
+
+print "Done. "
+
+

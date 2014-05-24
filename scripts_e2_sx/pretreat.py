@@ -12,7 +12,7 @@ for im in inImage:
     imNumber = im[-19:-15]
     outImage = dirName + "medfvccmplx_" + imNumber + ".mrc"
 
-    a = EMData().read_images(im)
+    a = EMData(im)
     b = a.process("eman1.filter.median", {"radius":3})
     b.process_inplace("normalize.edgemean")
     b.write_image(outImage)

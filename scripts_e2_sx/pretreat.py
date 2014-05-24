@@ -9,7 +9,7 @@ dirName = "higher_dose/"
 inImage = glob.glob(dirName+"*.mrc")
 
 for im in inImage:
-    imNumber = im[-19:-15]
+    imNumber = im[-8:-4]
     outImage = dirName + "medfvccmplx_" + imNumber + ".mrc"
 
     a = EMData(im)

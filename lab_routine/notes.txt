@@ -1,0 +1,4 @@
+Installation of wxPython: 
+    Ubuntu - 
+        apt-get install python-wxgtk3.0-dev python-wxgtk3.0
+
